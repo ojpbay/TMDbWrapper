@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using TmdbWrapper;
-using TmdbWrapper.Search;
-using TmdbWrapper.Utilities;
-using Windows.Data.Json;
-
+﻿
 namespace TmdbWrapper
 {
     /// <summary>

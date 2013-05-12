@@ -54,6 +54,20 @@ namespace TmdbWrapper.Search
         /// Number of votes cast.
         /// </summary>
         public int VoteCount { get; private set; }
+
+        /// <summary>
+        /// Gets the image.
+        /// </summary>
+        /// <value>
+        /// The image.
+        /// </value>
+        public Uri Image
+        {
+            get
+            {
+                return this.Uri(PosterSize.w154);
+            }
+        }
         #endregion
 
         #region overrides
@@ -65,6 +79,24 @@ namespace TmdbWrapper.Search
             return Title;
         }
         #endregion
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MovieSummary"/> class.
+        /// </summary>
+        public MovieSummary()
+        {
+        }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MovieSummary" /> class.
+        /// </summary>
+        /// <param name="title">The title.</param>
+        /// <param name="posterPath">The poster path.</param>
+        public MovieSummary(string title, string posterPath)
+        {
+            this.Title = title;
+            this.PosterPath = posterPath;
+        }
 
         #region interface implementations
         void ITmdbObject.ProcessJson(JsonObject jsonObject)

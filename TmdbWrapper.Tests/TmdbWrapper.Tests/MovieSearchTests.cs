@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 namespace TmdbWrapper.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class MovieSearchTests
     {
         [TestInitialize]
         public void Initialize()
         {
-            TheMovieDb.Initialise("TODO");
+            TheMovieDb.Initialise("");
         }
 
         [TestCleanup]
@@ -37,6 +37,30 @@ namespace TmdbWrapper.Tests
                 var movie = await TheMovieDb.GetMovieAsync(550);
                 Assert.IsNotNull(movie);
             }            
+        }
+
+        [TestMethod]
+        public async Task SearchMovie_GetLatestMovieSummaries_ReturnsNotNull()
+        {
+            var latest = await TheMovieDb.GetUpcomingMoviesAsync();
+
+            Assert.IsNotNull(latest);
+        }
+
+        [TestMethod]
+        public async Task SearchMovie_GetNowPlayingMovieSummaries_ReturnsNotNull()
+        {
+            var latest = await TheMovieDb.GetNowPlayingMoviesAsync();
+
+            Assert.IsNotNull(latest);
+        }
+
+        [TestMethod]
+        public async Task SearchMovie_GetTopRatedMovieSummaries_ReturnsNotNull()
+        {
+            var latest = await TheMovieDb.GetTopRatedMoviesAsync();
+
+            Assert.IsNotNull(latest);
         }
     }
 }

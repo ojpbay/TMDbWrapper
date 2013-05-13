@@ -81,6 +81,51 @@ namespace TmdbWrapper
             request.AddParameter("query", query.EscapeString());
             request.AddParameter("page", page);
             return await request.ProcessSearchRequestAsync();
-        }              
+        }
+
+        /// <summary>
+        /// Gets the upcoming movies async.
+        /// </summary>
+        /// <returns>
+        /// The upcoming movie summaries.
+        /// </returns>
+        public static async Task<SearchResult<MovieSummary>> GetUpcomingMoviesAsync(int page = 1)
+        {
+            // TODO - cache these
+            Request<MovieSummary> request = new Request<MovieSummary>("movie/upcoming");
+            request.AddParameter("page", page);
+
+            return await request.ProcessSearchRequestAsync(); ;
+        }
+
+        /// <summary>
+        /// Gets the top rated movies async.
+        /// </summary>
+        /// <returns>
+        /// The top rated movie summaries.
+        /// </returns>
+        public static async Task<SearchResult<MovieSummary>> GetTopRatedMoviesAsync(int page = 1)
+        {
+            // TODO - cache these
+            Request<MovieSummary> request = new Request<MovieSummary>("movie/top_rated");
+            request.AddParameter("page", page);
+
+            return await request.ProcessSearchRequestAsync(); ;
+        }
+
+        /// <summary>
+        /// Gets the now playing movies async.
+        /// </summary>
+        /// <returns>
+        /// The now playing movie summaries.
+        /// </returns>
+        public static async Task<SearchResult<MovieSummary>> GetNowPlayingMoviesAsync(int page = 1)
+        {
+            // TODO - cache these
+            Request<MovieSummary> request = new Request<MovieSummary>("movie/now_playing");
+            request.AddParameter("page", page);
+
+            return await request.ProcessSearchRequestAsync(); ;
+        }
     }
 }

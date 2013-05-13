@@ -47,7 +47,7 @@ namespace TmdbWrapper
                 DatabaseCache.SetObject(MovieID, movie);
             }
             return movie;
-        }
+        }        
 
         /// <summary>
         /// Gets a movie by the IMDB id.
